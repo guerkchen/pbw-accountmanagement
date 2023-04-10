@@ -1,6 +1,6 @@
 version: '2'
 services:
-  pbw-accountmanagement:
+  main:
     build: .
     command: node index.js
     ports:
