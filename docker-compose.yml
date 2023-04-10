@@ -1,0 +1,7 @@
+version: '2'
+services:
+  pbw-accountmanagement:
+    build: .
+    command: node index.js
+    ports:
+      - "3000:3000"
