@@ -1,0 +1,38 @@
+{
+  "name": "pbw-accountmanagement",
+  "version": "1.0.0",
+  "description": "Ein kleiner Service, auf der PBW-Mitglieder sich mit Nutzername und Passwort authentifizieren können. Der Service prüft die Logindaten gegen den Stammesmanager und legt bei Erfolg einen Nextcloud-Account mit den Nutzerdaten an.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guerkchen/pbw-accountmanagement.git"
+  },
+  "keywords": [
+    "stammesmanager",
+    "pbw",
+    "pfadfinder",
+    "vereinonline",
+    "verbandonline",
+    "weltenbummler"
+  ],
+  "author": "Matthias Wild",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guerkchen/pbw-accountmanagement/issues"
+  },
+  "homepage": "https://github.com/guerkchen/pbw-accountmanagement#readme",
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "config": "^3.3.9",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nextcloud-node-client": "^1.8.1",
+    "small-async-keystore": "^1.0.3",
+    "stammesmanager-to-nextcloud": "file:../stammesmanager-to-nextcloud",
+    "verbandonline-node-api": "file:../verbandonline-node-api",
+    "winston": "^3.8.2"
+  }
+}
