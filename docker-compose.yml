@@ -1,7 +1,10 @@
 version: '2'
 services:
-  main:
+  web:
     build: .
     command: node index.js
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
       - "3000:3000"
