@@ -5,13 +5,14 @@ const winston = require('winston');
 const dotenv = require('dotenv');
 const config = require('config');
 const stammesmanagerToNextcloud = require("stammesmanager-to-nextcloud");
+const keystore = require("small-async-keystore");
 
 const app = express();
 app.set('trust proxy', true);
 
 dotenv.config();
 const logger = winston.createLogger({
-    level: 'info',
+    level: 'debug',
     format: winston.format.combine(
       winston.format.timestamp(),
       winston.format.json()
@@ -39,10 +40,21 @@ app.get('/', async (req, res) => {
         return;
         }
 
+        // Filter auf "Admin" und alle Schreibweisen davon
+        if(user.name.toLowerCase().contains("admin")){
+            logger.warn("Loginversuch mit Namensbestandteil 'admin' aufgefangen ${username}");
+            res.send("Nutzername darf nicht 'admin' enthalten, Verarbeitung nicht zugelassen.");
+            res.status(403);
+        }
+
         verbandonline.VerifyLoginID(user.name, user.pass, stama_id => {
             // gültige Logindaten gegenüber Stammesmananger
             logger.info("gültiger Stammesmanager Login von " + user.name);
             pre_res = "Login in den Stammesmanager erfolgreich verifiziert.<br>";
+
+            // Speichere Account im Async Keystore
+            keystore.insertPassword(user.name, user.pass);
+
             stammesmanagerToNextcloud.transferUserToNextcloud(user.name, user.pass, stama_id, (nextcloud_res => {
                 // Anlage Nutzeraccount in der Nextcloud hat funktioniert
                 logger.info("Nextcloud Zugriff für " + user.name + " war erfolgreich");
