@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
-      - ./log:/usr/src/app/log
-      - ./keystore:/usr/src/app/keystore
+      - ./log:/usr/app/log
+      - ./keystore:/usr/app/keystore
     ports:
       - "3000:3000"

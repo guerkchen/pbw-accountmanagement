@@ -12,7 +12,7 @@ app.set('trust proxy', true);
 
 dotenv.config();
 const logger = winston.createLogger({
-    level: 'debug',
+    level: 'info',
     format: winston.format.combine(
       winston.format.timestamp(),
       winston.format.json()
@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
         }
 
         // Filter auf "Admin" und alle Schreibweisen davon
-        if(user.name.toLowerCase().contains("admin")){
+        if(user.name.toLowerCase().includes("admin")){
             logger.warn("Loginversuch mit Namensbestandteil 'admin' aufgefangen ${username}");
             res.send("Nutzername darf nicht 'admin' enthalten, Verarbeitung nicht zugelassen.");
             res.status(403);

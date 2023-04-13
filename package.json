@@ -32,6 +32,6 @@
     "dotenv": "^16.0.3",
     "config": "^3.3.9",
     "stammesmanager-to-nextcloud": "^1.0.2",
-    "small-async-keystore": "^1.0.3"    
+    "small-async-keystore": "^1.0.3"
   }
 }
