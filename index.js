@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
         }
 
         // Filter auf "Admin" und alle Schreibweisen davon
-        if(user.name.toLowerCase().contains("admin")){
+        if(user.name.toLowerCase().includes("admin")){
             logger.warn("Loginversuch mit Namensbestandteil 'admin' aufgefangen ${username}");
             res.send("Nutzername darf nicht 'admin' enthalten, Verarbeitung nicht zugelassen.");
             res.status(403);
