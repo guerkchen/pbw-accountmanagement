@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Pfadfinderbund Weltenbummler Mitgliedsausweise</title>
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/open-sans.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body onload="init();">
+    <main>
+      <div class="content" id="div-login">
+        <h2>Login</h2>
+        <p>
+          Bitte gib deine Logindaten für den Stammesmanager ein.<br />
+          Mit diesen Daten wird für dich ein Account in der PBW-Nextcloud und
+          bei Microsoft angelegt.<br />
+          Falls du bereits einen Account hast, wird das Kennwort ggf. auf dein
+          aktuelles Stammesmanager-Kennwort gesetzt.
+        </p>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          required
+        /><br />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+        /><br />
+        <button class="button" onclick="syncAccounts();">
+          Account synchronisieren
+        </button>
+      </div>
+      <div class="content" id="div-result">
+        <h2>Ergebnis</h2>
+        <textarea id="textarea-result" readonly></textarea>
+      </div>
+    </main>
+    <div class="footer">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+
+    init();
+  </body>
+</html>

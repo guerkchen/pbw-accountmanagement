@@ -1,0 +1,19 @@
+{
+  "name": "nextcloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nextcloud.js",
+  "scripts": {
+    "prod": "CONFIG_DIR=/res/ STAGE=prod node nextcloud.js",
+    "test": "CONFIG_DIR=../res/ STAGE=test node nextcloud.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.9",
+    "dotenv": "^16.0.3",
+    "nextcloud-node-client": "^1.8.1",
+    "redis": "^4.6.6",
+    "winston": "^3.8.2"
+  }
+}

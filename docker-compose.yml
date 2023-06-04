@@ -1,12 +1,44 @@
-version: '2'
+---
+version: '2.1'
 services:
-  web:
-    build: .
-    command: node index.js
-    volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
-      - ./log:/usr/app/log
-      - ./keystore:/usr/app/keystore
+  redis:
+    image: 'redis:alpine'
     ports:
-      - "3000:3000"
+      - "127.0.0.1:6379:6379"
+      
+  webservice:
+    build: ./webservice
+    command: npm run prod
+    volumes:
+      - './res:/usr/src/app/res'
+      - './logs:/usr/src/app/logs'
+      - './webservice/static:/usr/src/app/static'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - redis
+  keystore:
+    build: ./keystore
+    command: npm run prod
+    volumes:
+      - './res:/usr/src/app/res'
+      - './logs:/usr/src/app/logs'
+      - './keystore_data:/usr/src/app/keystore'
+    depends_on:
+      - redis
+  m365:
+    build: ./m365
+    command: npm run prod
+    volumes:
+      - './res:/usr/src/app/res'
+      - './logs:/usr/src/app/logs'
+    depends_on:
+      - redis
+  nextcloud:
+    build: ./nextcloud
+    command: npm run prod
+    volumes:
+      - './res:/usr/src/app/res'
+      - './logs:/usr/src/app/logs'
+    depends_on:
+      - redis

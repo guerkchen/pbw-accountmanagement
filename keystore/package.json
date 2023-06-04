@@ -1,0 +1,27 @@
+{
+  "name": "keystore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "keystore.js",
+  "scripts": {
+    "prod": "CONFIG_DIR=/res/ STAGE=prod node keystore.js",
+    "test": "CONFIG_DIR=../res/ STAGE=test node keystore.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.9",
+    "dotenv": "^16.1.3",
+    "fs": "^0.0.1-security",
+    "jsonfile": "^6.1.0",
+    "node-forge": "^1.3.1",
+    "node-synchronized": "^1.0.1",
+    "nodejs-base64": "^2.0.0",
+    "nosql": "^6.1.0",
+    "read": "^2.1.0",
+    "read-file": "^0.2.0",
+    "redis": "^4.6.6",
+    "winston": "^3.8.2",
+    "write": "^2.0.0"
+  }
+}

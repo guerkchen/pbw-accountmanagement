@@ -1,0 +1,49 @@
+{
+  "stamakey": {
+    "userlogin": "userlogin",
+    "vorname": "vorname",
+    "nachname": "nachname",
+    "pfadfindername": "key_pfadfindername",
+    "email": "p_email"
+  },
+  "keystore": {
+    "keystoreDB": "keystore/keystore.db",
+    "publickeyFile": "keystore/publickey.secret",
+    "privatekeyFile": "keystore/privatekey.secret",
+    "pepperLength": 16
+  },
+  "m365": {
+    "mail" : "@pbw.org"
+  },
+  "log": {
+    "level": "debug",
+    "file": {
+      "m365": "logs/m365.log",
+      "keystore": "logs/keystore.log",
+      "webservice": "logs/webservice.log",
+      "nextcloud": "logs/nextcloud.log"
+    }
+  },
+  "url": {
+    "stammesmanager": "https://verbandonline.org/PBW_Bund/",
+    "nextcloud": "https://testcloud.w0m.de/nextcloud/"
+  },
+
+  "queues": {
+    "accountdata": {
+      "topic": "accountdata",
+      "requestId": "requestId",
+      "stamauser": "stamauser",
+      "password": "password"
+    },
+    "response": {
+      "topic": "response",
+      "requestId": "requestId",
+      "theme": "theme",
+      "code": "code",
+      "message": "message"
+    }
+  },
+
+  "namespace": "pbw-accountmanagement"
+}
