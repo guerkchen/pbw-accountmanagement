@@ -16,7 +16,8 @@ function init(){
 function syncAccounts() {
     feedbackField.value = 'Hier kannst du sehen, ob das Anlegen der Accounts funktioniert hat. Falls Probleme auftreten, die du nicht alleine lösen kannst, gibt bitte immer diesen Textblock mit an.\n';
 
-    fetch('http://localhost:3000/login', {
+    const url = location.protocol + "//" + location.hostname + ":" + location.port + "/login";
+    fetch(url, {
         'method': 'POST',
         'headers': {
             "Content-type": "application/json; charset=UTF-8"
